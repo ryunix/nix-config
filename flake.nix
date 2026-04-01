@@ -3,8 +3,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
   };
   outputs = inputs@{ self, nixpkgs, ... }: {
-    # NOTE: 'nixos' is the default hostname
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.archetype = nixpkgs.lib.nixosSystem {
       modules = [ ./configuration.nix ];
     };
   };
