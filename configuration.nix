@@ -13,6 +13,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./disk-configuration.nix
   ];
 
   nix.settings.experimental-features = [

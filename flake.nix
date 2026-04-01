@@ -16,7 +16,10 @@
     }:
     {
       nixosConfigurations.archetype = nixpkgs.lib.nixosSystem {
-        modules = [ ./configuration.nix ];
+        modules = [
+          ./configuration.nix
+          disko.nixosModules.disko
+        ];
       };
 
       packages.x86_64-linux.disko = disko.packages.x86_64-linux.disko;
