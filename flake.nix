@@ -8,11 +8,18 @@
     };
   };
   outputs =
-    inputs@{ self, nixpkgs, ... }:
+    inputs@{
+      self,
+      nixpkgs,
+      disko,
+      ...
+    }:
     {
       nixosConfigurations.archetype = nixpkgs.lib.nixosSystem {
         modules = [ ./configuration.nix ];
       };
+
+      packages.x86_64-linux.disko = disko.packages.x86_64-linux.disko;
 
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
     };
