@@ -41,6 +41,14 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "us";
 
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+    ];
+  };
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -48,6 +56,9 @@
     displayManager.startx = {
       enable = true;
       generateScript = true;
+      extraCommands = ''
+        fcitx5 -d
+      '';
     };
 
     windowManager.dwm.enable = true;
