@@ -129,6 +129,7 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  programs.slock.enable = true;
 
   # List services that you want to enable:
 
