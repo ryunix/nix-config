@@ -42,10 +42,19 @@
   console.keyMap = "us";
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+
+    displayManager.startx = {
+      enable = true;
+      generateScript = true;
+    };
+
+    windowManager.dwm.enable = true;
+  };
 
   # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
+  services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
@@ -72,10 +81,10 @@
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  # environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  # ];
+  environment.systemPackages = with pkgs; [
+    dmenu
+    st
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
