@@ -108,6 +108,11 @@
     keyMode = "vi";
     terminal = "tmux";
     escapeTime = 10;
+    extraConfig = ''
+      %if "#{DISPLAY}"
+      set-option -s default-terminal "tmux-256color"
+      %endif
+    '';
   };
 
   programs.vim = {
