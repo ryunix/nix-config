@@ -18,7 +18,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.git
     pkgs.tmux
     pkgs.vim
 
@@ -83,5 +82,16 @@
     initExtra = ''
       stty -ixon
     '';
+  };
+
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = "ryunix";
+        email = "ryunix.net@gmail.com";
+      };
+    };
+    ignores = [ "*~" ];
   };
 }
