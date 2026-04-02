@@ -16,6 +16,7 @@
     inputs@{
       self,
       nixpkgs,
+      home-manager,
       disko,
       ...
     }:
@@ -23,6 +24,12 @@
       nixosConfigurations.archetype = nixpkgs.lib.nixosSystem {
         modules = [
           ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.ryunix = ./home.nix;
+          }
           disko.nixosModules.disko
         ];
       };
