@@ -49,6 +49,31 @@
     ];
   };
 
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts-color-emoji
+      source-han-code-jp
+      source-han-sans
+      source-han-serif
+    ];
+
+    fontconfig.defaultFonts = {
+      serif = [
+        "Source Han Serif"
+        "Noto Color Emoji"
+      ];
+      sansSerif = [
+        "Source Han Sans"
+        "Noto Color Emoji"
+      ];
+      monospace = [
+        "Source Han Code JP"
+        "Noto Color Emoji"
+      ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+  };
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
