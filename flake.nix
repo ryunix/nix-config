@@ -34,6 +34,19 @@
             disko.nixosModules.disko
           ];
         };
+
+        kurumi = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./hosts/kurumi/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ryunix = ./hosts/kurumi/home.nix;
+            }
+            disko.nixosModules.disko
+          ];
+        };
       };
 
       packages.x86_64-linux.disko = disko.packages.x86_64-linux.disko;
