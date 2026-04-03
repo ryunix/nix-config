@@ -21,17 +21,19 @@
       ...
     }:
     {
-      nixosConfigurations.archetype = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.ryunix = ./home.nix;
-          }
-          disko.nixosModules.disko
-        ];
+      nixosConfigurations = {
+        archetype = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./hosts/archetype/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ryunix = ./hosts/archetype/home.nix;
+            }
+            disko.nixosModules.disko
+          ];
+        };
       };
 
       packages.x86_64-linux.disko = disko.packages.x86_64-linux.disko;
