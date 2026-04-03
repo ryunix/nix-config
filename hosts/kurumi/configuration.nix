@@ -39,7 +39,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "us";
+  console.useXkbConfig = true;
 
   i18n.inputMethod = {
     enable = true;
@@ -91,7 +91,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+  services.xserver.xkb.options = "ctrl:nocaps";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
