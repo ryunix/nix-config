@@ -49,7 +49,10 @@
         };
       };
 
-      packages.x86_64-linux.disko = disko.packages.x86_64-linux.disko;
+      packages.x86_64-linux = {
+        disko = disko.packages.x86_64-linux.disko;
+        cica = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/cica/package.nix { };
+      };
 
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
     };
