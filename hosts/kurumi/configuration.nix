@@ -38,6 +38,7 @@
 
   fonts = {
     packages = with pkgs; [
+      cica
       noto-fonts-color-emoji
       source-han-code-jp
       source-han-sans

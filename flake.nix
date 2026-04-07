@@ -37,6 +37,7 @@
 
         kurumi = nixpkgs.lib.nixosSystem {
           modules = [
+            { nixpkgs.overlays = [ self.overlays.default ]; }
             ./hosts/kurumi/configuration.nix
             home-manager.nixosModules.home-manager
             {
@@ -47,6 +48,10 @@
             disko.nixosModules.disko
           ];
         };
+      };
+
+      overlays.default = final: prev: {
+        cica = prev.callPackage ./pkgs/cica/package.nix { };
       };
 
       packages.x86_64-linux = {
