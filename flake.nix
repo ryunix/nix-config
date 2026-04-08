@@ -53,12 +53,14 @@
       overlays.default = final: prev: {
         cica = prev.callPackage ./pkgs/cica/package.nix { };
         dwm = prev.callPackage ./pkgs/dwm/package.nix { dwm = prev.dwm; };
+        st = prev.callPackage ./pkgs/st/package.nix { st = prev.st; };
       };
 
       packages.x86_64-linux = {
         disko = disko.packages.x86_64-linux.disko;
         cica = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/cica/package.nix { };
         dwm = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/dwm/package.nix { };
+        st = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/st/package.nix { };
       };
 
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
