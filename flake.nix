@@ -12,6 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
   outputs =
     inputs@{
       self,
@@ -20,6 +21,10 @@
       disko,
       ...
     }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
     {
       nixosConfigurations = {
         archetype = nixpkgs.lib.nixosSystem {
@@ -56,13 +61,13 @@
         st = prev.callPackage ./pkgs/st/package.nix { st = prev.st; };
       };
 
-      packages.x86_64-linux = {
-        disko = disko.packages.x86_64-linux.disko;
-        cica = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/cica/package.nix { };
-        dwm = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/dwm/package.nix { };
-        st = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/st/package.nix { };
+      packages.${system} = {
+        disko = disko.packages.${system}.disko;
+        cica = pkgs.callPackage ./pkgs/cica/package.nix { };
+        dwm = pkgs.callPackage ./pkgs/dwm/package.nix { };
+        st = pkgs.callPackage ./pkgs/st/package.nix { };
       };
 
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+      formatter.${system} = pkgs.nixfmt-tree;
     };
 }
