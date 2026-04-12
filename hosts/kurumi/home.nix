@@ -13,7 +13,7 @@
 
   home.packages = [
     pkgs.keepassxc
-    pkgs.scrot
+    pkgs.screenshot-tools
     pkgs.sxiv
     pkgs.xclip
   ];
