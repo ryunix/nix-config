@@ -58,6 +58,7 @@
       overlays.default = final: prev: {
         cica = prev.callPackage ./pkgs/cica/package.nix { };
         dwm = prev.callPackage ./pkgs/dwm/package.nix { dwm = prev.dwm; };
+        screenshot-tools = prev.callPackage ./pkgs/screenshot-tools/package.nix { };
         st = prev.callPackage ./pkgs/st/package.nix { st = prev.st; };
       };
 
@@ -65,6 +66,7 @@
         disko = disko.packages.${system}.disko;
         cica = pkgs.callPackage ./pkgs/cica/package.nix { };
         dwm = pkgs.callPackage ./pkgs/dwm/package.nix { };
+        screenshot-tools = pkgs.callPackage ./pkgs/screenshot-tools/package.nix { };
         st = pkgs.callPackage ./pkgs/st/package.nix { };
       };
 
