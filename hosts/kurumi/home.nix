@@ -13,6 +13,7 @@
 
   home.packages = [
     pkgs.keepassxc
+    pkgs.mozc
     pkgs.screenshot-tools
     pkgs.sxiv
     pkgs.xclip
@@ -25,6 +26,32 @@
     initExtra = ''
       stty -ixon
     '';
+  };
+
+  programs.emacs = {
+    enable = true;
+    extraPackages = epkgs: [
+      epkgs.evil
+      epkgs.evil-collection
+      epkgs.evil-numbers
+      epkgs.magit
+      epkgs.markdown-mode
+      epkgs.mozc
+      epkgs.nix-ts-mode
+      epkgs.vdiff
+      (epkgs.treesit-grammars.with-grammars (grammars: [
+        grammars.tree-sitter-nix
+      ]))
+    ];
+  };
+
+  xdg.configFile = {
+    "emacs/early-init.el".source = ./emacs/early-init.el;
+    "emacs/init.el".source = ./emacs/init.el;
+  };
+
+  xresources.properties = {
+    "Emacs.useXIM" = false;
   };
 
   programs.firefox = {
