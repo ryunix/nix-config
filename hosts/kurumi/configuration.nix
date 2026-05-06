@@ -69,6 +69,8 @@
       enable = true;
       generateScript = true;
       extraCommands = ''
+        [ -f "$HOME/.Xresources" ] && xrdb -merge "$HOME/.Xresources"
+
         fcitx5 -d
       '';
     };
