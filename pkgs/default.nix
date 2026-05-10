@@ -1,0 +1,6 @@
+pkgs: {
+  cica = pkgs.callPackage ./cica/package.nix { };
+  dwm = pkgs.callPackage ./dwm/package.nix { };
+  screenshot-tools = pkgs.callPackage ./screenshot-tools/package.nix { };
+  st = pkgs.callPackage ./st/package.nix { };
+}
