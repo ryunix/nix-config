@@ -17,7 +17,6 @@
     inputs@{
       self,
       nixpkgs,
-      home-manager,
       disko,
       ...
     }:
@@ -26,34 +25,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      nixosConfigurations = {
-        archetype = nixpkgs.lib.nixosSystem {
-          modules = [
-            ./hosts/archetype/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ryunix = ./hosts/archetype/home.nix;
-            }
-            disko.nixosModules.disko
-          ];
-        };
-
-        kurumi = nixpkgs.lib.nixosSystem {
-          modules = [
-            { nixpkgs.overlays = [ self.overlays.default ]; }
-            ./hosts/kurumi/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ryunix = ./hosts/kurumi/home.nix;
-            }
-            disko.nixosModules.disko
-          ];
-        };
-      };
+      nixosConfigurations = import ./hosts inputs;
 
       overlays.default = import ./pkgs/overlay.nix;
 
