@@ -27,6 +27,8 @@
     {
       nixosConfigurations = import ./hosts inputs;
 
+      nixosModules.default = import ./modules/nixos;
+
       overlays.default = import ./pkgs/overlay.nix;
 
       packages.${system} = (import ./pkgs pkgs) // {

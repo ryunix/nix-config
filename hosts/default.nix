@@ -22,6 +22,7 @@ inputs@{
 
   kurumi = nixpkgs.lib.nixosSystem {
     modules = [
+      self.nixosModules.default
       { nixpkgs.overlays = [ self.overlays.default ]; }
       ./kurumi/configuration.nix
       home-manager.nixosModules.home-manager
