@@ -27,6 +27,7 @@ inputs@{
       ./kurumi/configuration.nix
       home-manager.nixosModules.home-manager
       {
+        home-manager.sharedModules = [ self.homeModules.default ];
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.ryunix = ./kurumi/home.nix;

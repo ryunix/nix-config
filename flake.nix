@@ -29,6 +29,8 @@
 
       nixosModules.default = import ./modules/nixos;
 
+      homeModules.default = import ./modules/home-manager;
+
       overlays.default = import ./pkgs/overlay.nix;
 
       packages.${system} = (import ./pkgs pkgs) // {
