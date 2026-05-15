@@ -20,6 +20,22 @@ inputs@{
     ];
   };
 
+  chiaki = nixpkgs.lib.nixosSystem {
+    modules = [
+      self.nixosModules.default
+      { nixpkgs.overlays = [ self.overlays.default ]; }
+      ./chiaki/configuration.nix
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.sharedModules = [ self.homeModules.default ];
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.ryunix = ./chiaki/home.nix;
+      }
+      disko.nixosModules.disko
+    ];
+  };
+
   kurumi = nixpkgs.lib.nixosSystem {
     modules = [
       self.nixosModules.default
