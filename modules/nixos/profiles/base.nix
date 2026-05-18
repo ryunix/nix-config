@@ -38,4 +38,8 @@
       PermitRootLogin = "no";
     };
   };
+
+  services.netbird.enable = true;
+
+  services.resolved.enable = true;
 }
