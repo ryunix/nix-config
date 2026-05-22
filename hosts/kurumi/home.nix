@@ -17,6 +17,7 @@
   my.programs.emacs.enable = true;
   my.programs.firefox.enable = true;
   my.programs.git.enable = true;
+  my.programs.ssh.enable = true;
   my.programs.tmux.enable = true;
   my.programs.vim.enable = true;
 }
