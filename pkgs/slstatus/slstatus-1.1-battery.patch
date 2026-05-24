@@ -1,0 +1,11 @@
+--- a/config.def.h
++++ b/config.def.h
+@@ -66,6 +66,8 @@ static const char unknown_str[] = "n/a";
+  */
+ static const struct arg args[] = {
+ 	/* function format          argument */
++	{ battery_perc, "BAT %2s %% ", "BAT0" },
++	{ battery_state, "%s | ", "BAT0" },
+ 	{ cpu_perc, "CPU %2s %% | ", NULL },
+ 	{ ram_perc, "RAM %2s %% | ", NULL },
+ 	{ datetime, "%s", "%Y-%m-%d (%a) %H:%M" },

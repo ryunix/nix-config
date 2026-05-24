@@ -1,0 +1,20 @@
+--- a/config.def.h
++++ b/config.def.h
+@@ -1,7 +1,7 @@
+ /* See LICENSE file for copyright and license details. */
+ 
+ /* interval between updates (in ms) */
+-const unsigned int interval = 1000;
++const unsigned int interval = 3000;
+ 
+ /* text to show if no value can be retrieved */
+ static const char unknown_str[] = "n/a";
+@@ -66,5 +66,7 @@ static const char unknown_str[] = "n/a";
+  */
+ static const struct arg args[] = {
+ 	/* function format          argument */
+-	{ datetime, "%s",           "%F %T" },
++	{ cpu_perc, "CPU %2s %% | ", NULL },
++	{ ram_perc, "RAM %2s %% | ", NULL },
++	{ datetime, "%s", "%Y-%m-%d (%a) %H:%M" },
+ };
