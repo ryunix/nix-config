@@ -60,6 +60,7 @@ in
           [ -f "$HOME/.Xresources" ] && xrdb -merge "$HOME/.Xresources"
 
           fcitx5 -d
+          slstatus &
         '';
       };
 
@@ -79,6 +80,9 @@ in
     environment.systemPackages = with pkgs; [
       dmenu
       st
+      (slstatus.override {
+        withBattery = config.my.profiles.laptop.enable;
+      })
     ];
 
     programs.slock.enable = true;
