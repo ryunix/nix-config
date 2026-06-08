@@ -17,10 +17,10 @@ in
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks = {
+      settings = {
         "*.netbird.cloud" = {
-          identityFile = "~/.ssh/id_ed25519_local";
-          identitiesOnly = true;
+          IdentityFile = "~/.ssh/id_ed25519_local";
+          IdentitiesOnly = true;
         };
       };
     };
