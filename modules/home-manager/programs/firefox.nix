@@ -16,6 +16,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
+      configPath = ".mozilla/firefox";
       policies = {
         AIControls.Default = {
           Value = "blocked";
