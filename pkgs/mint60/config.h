@@ -1,0 +1,8 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+
+#pragma once
+
+#undef RGBLIGHT_EFFECT_SNAKE
+#undef RGBLIGHT_EFFECT_KNIGHT
+#undef RGBLIGHT_EFFECT_RGB_TEST
+#undef RGBLIGHT_EFFECT_ALTERNATING
