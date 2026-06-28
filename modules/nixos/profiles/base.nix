@@ -42,4 +42,6 @@
   services.netbird.enable = true;
 
   services.resolved.enable = true;
+
+  hardware.keyboard.qmk.enable = true;
 }
