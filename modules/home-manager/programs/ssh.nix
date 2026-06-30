@@ -22,6 +22,10 @@ in
           IdentityFile = "~/.ssh/id_ed25519_local";
           IdentitiesOnly = true;
         };
+        "github.com" = {
+          IdentityFile = "~/.ssh/id_ed25519_github";
+          IdentitiesOnly = true;
+        };
       };
     };
   };
