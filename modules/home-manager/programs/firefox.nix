@@ -24,6 +24,10 @@ in
         };
         AutofillAddressEnabled = false;
         AutofillCreditCardEnabled = false;
+        BrowserDataBackup = {
+          AllowBackup = false;
+          AllowRestore = false;
+        };
         DisableFirefoxAccounts = true;
         DisableFirefoxScreenshots = true;
         DisableFirefoxStudies = true;
@@ -47,6 +51,7 @@ in
         };
         FirefoxHome = {
           Search = false;
+          Weather = false;
           TopSites = false;
           SponsoredTopSites = false;
           Highlights = false;
