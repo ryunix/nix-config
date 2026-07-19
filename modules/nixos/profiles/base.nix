@@ -40,6 +40,8 @@
     };
   };
 
+  programs.mosh.enable = true;
+
   services.netbird.enable = true;
 
   services.resolved.enable = true;
