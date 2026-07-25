@@ -35,6 +35,7 @@ in
         DisableProfileImport = true;
         DisableProfileRefresh = true;
         DisableRemoteImprovements = true;
+        DisableRemoteSettingsAndAcceptSecurityConsequences = true;
         DisableSystemAddonUpdate = true;
         DisableTelemetry = true;
         DNSOverHTTPS = {
