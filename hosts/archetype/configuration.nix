@@ -166,4 +166,6 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.11"; # Did you read the comment?
 
+  # VirtualBox Guest Additions fail to build against kernel 6.18.44 or later.
+  virtualisation.virtualbox.guest.enable = lib.mkForce false;
 }
