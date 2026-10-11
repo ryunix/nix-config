@@ -15,5 +15,10 @@
 
   my.profiles.desktop.enable = true;
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+
   system.stateVersion = "25.11";
 }
